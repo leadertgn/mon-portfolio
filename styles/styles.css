@@ -1,0 +1,453 @@
+/* --- Styles Généraux et Réinitialisation --- */
+:root {
+    /* Couleurs - N'hésitez pas à les ajuster ! */
+    --primary-color: #007bff; /* Bleu standard */
+    --secondary-color: #6c757d; /* Gris pour les éléments secondaires */
+    --background-light: #f8f9fa; /* Arrière-plan clair */
+    --background-dark: #343a40; /* Arrière-plan sombre (pour le header/footer) */
+    --text-color-light: #333; /* Texte foncé sur fond clair */
+    --text-color-dark: #f8f9fa; /* Texte clair sur fond sombre */
+}
+
+/* Réinitialisation de base pour tous les éléments */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Inclut padding et border dans la largeur/hauteur totale */
+}
+
+/* Base pour le défilement fluide et la taille de police REM */
+html {
+    scroll-behavior: smooth; /* Active le défilement fluide pour les ancres */
+    font-size: 16px; /* Définit 1rem = 16px */
+}
+
+/* Styles par défaut pour le corps du document */
+body {
+    font-family: 'Arial', sans-serif; /* Police de caractère claire */
+    line-height: 1.6; /* Hauteur de ligne pour une meilleure lisibilité */
+    color: var(--text-color-light); /* Couleur de texte par défaut */
+    background-color: var(--background-light); /* Couleur d'arrière-plan par défaut */
+    overflow-x: hidden; /* Empêche le défilement horizontal dû au menu mobile */
+}
+
+/* Styles génériques pour les liens */
+a {
+    color: var(--primary-color);
+    text-decoration: none; /* Supprime le soulignement par défaut */
+}
+
+a:hover {
+    text-decoration: underline; /* Réactive le soulignement au survol */
+}
+
+/* Styles génériques pour les listes non ordonnées */
+ul {
+    list-style: none; /* Supprime les puces des listes */
+}
+
+/* --- Styles du Header (Version Desktop par défaut) --- */
+header {
+    background-color: var(--background-dark);
+    color: var(--text-color-dark);
+    padding: 1rem 2rem; /* Espace interne de 1rem haut/bas, 2rem gauche/droite */
+    display: flex;
+    justify-content: space-between; /* Aligne le logo à gauche et la navigation/bouton à droite */
+    align-items: center; /* Centre verticalement les éléments */
+    position: sticky; /* Rends le header fixe en haut de l'écran */
+    top: 0;
+    z-index: 1000; /* Assure que le header est au-dessus des autres éléments */
+}
+
+/* Style du conteneur logo et nom */
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Espacement entre l'image et le texte */
+    font-weight: bold;
+    font-size: 1.5rem; /* Taille de police pour le nom */
+    color: var(--text-color-dark);
+    text-decoration: none;
+}
+
+.header-logo .header-img img {
+    height: 2.5rem; /* Hauteur de l'image de profil (40px) */
+    width: 2.5rem; /* Largeur de l'image de profil (40px) */
+    border-radius: 50%; /* Rend l'image ronde */
+    object-fit: cover; /* Assure que l'image couvre bien l'espace */
+}
+
+.header-logo .my-name {
+    margin: 0; /* Supprime la marge par défaut des paragraphes */
+}
+
+/* Navigation principale sur Desktop */
+.main-nav ul {
+    display: flex; /* Affiche les liens de navigation en ligne */
+    gap: 2rem; /* Espacement entre les éléments de navigation */
+}
+
+.main-nav a {
+    color: var(--text-color-dark);
+    font-weight: bold;
+    padding: 0.5rem 0; /* Padding pour les liens */
+    transition: color 0.3s ease; /* Transition douce de la couleur au survol */
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* --- Bouton Burger (caché par défaut sur Desktop) --- */
+.menu-toggle {
+    display: none; /* Le bouton burger est caché sur les grands écrans */
+}
+
+/* Styles des barres du bouton burger */
+.menu-toggle .bar {
+    display: block;
+    width: 1.5625rem; /* Largeur d'une barre (25px) */
+    height: 0.1875rem; /* Épaisseur d'une barre (3px) */
+    background-color: var(--text-color-dark);
+    margin: 0.3125rem auto; /* Espacement entre les barres (5px) */
+    transition: all 0.3s ease-in-out; /* Animation pour la transformation en croix */
+}
+
+/* --- Media Queries pour le Responsive Design (Mobile First) --- */
+@media (max-width: 768px) {
+    header {
+        flex-wrap: nowrap; /* Empêche le retour à la ligne des éléments du header */
+    }
+
+    /* Afficher le bouton burger sur mobile */
+    .menu-toggle {
+        display: block; /* Rend le bouton burger visible */
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0.5rem;
+        z-index: 1001; /* Assure qu'il est au-dessus du menu déplié */
+    }
+
+    /* Styles de la navigation mobile (initialement cachée) */
+    .main-nav {
+        position: fixed; /* Position fixe par rapport à la fenêtre */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--background-dark); /* Fond du menu quand il est ouvert */
+        display: flex;
+        flex-direction: column; /* Les liens s'empilent verticalement */
+        justify-content: center; /* Centre les liens verticalement */
+        align-items: center; /* Centre les liens horizontalement */
+        transform: translateX(100%); /* Décale le menu hors de l'écran par défaut */
+        transition: transform 0.3s ease-in-out; /* Animation de glissement */
+        z-index: 999; /* En dessous du bouton burger */
+    }
+
+    /* Quand la classe 'nav-open' est sur le body, le menu apparaît */
+    body.nav-open .main-nav {
+        transform: translateX(0); /* Fait glisser le menu sur l'écran */
+    }
+
+    /* Styles des éléments de liste dans le menu mobile */
+    .main-nav ul {
+        flex-direction: column; /* Les éléments de liste s'empilent */
+        gap: 2rem; /* Plus d'espace entre les liens du menu mobile */
+        text-align: center;
+    }
+
+    /* Styles des liens dans le menu mobile */
+    .main-nav a {
+        font-size: 2rem; /* Taille de police plus grande pour la lisibilité sur mobile */
+        padding: 1rem 0; /* Augmente la zone de clic */
+    }
+
+    /* Animations du bouton burger en croix */
+    body.nav-open .menu-toggle .bar:nth-child(1) {
+        transform: translateY(0.5rem) rotate(45deg); /* Barre du haut */
+    }
+
+    body.nav-open .menu-toggle .bar:nth-child(2) {
+        opacity: 0; /* Barre du milieu disparaît */
+    }
+
+    body.nav-open .menu-toggle .bar:nth-child(3) {
+        transform: translateY(-0.5rem) rotate(-45deg); /* Barre du bas */
+    }
+
+    /* Ajustements généraux pour les sections sur mobile */
+    section {
+        padding: 2rem 1rem; /* Moins de padding sur les côtés */
+    }
+
+    /* Ajustements pour la section Projets sur mobile */
+    .projects {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+
+    /* Ajustements pour les compétences sur mobile */
+    .skills ul {
+        justify-content: flex-start; /* Aligne les compétences à gauche sur mobile */
+    }
+}
+
+/* --- Styles des Sections de Contenu --- */
+
+/* Section Accueil (Hero) */
+.hero {
+    min-height: 80vh; /* Prend au moins 80% de la hauteur de la fenêtre */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    /* Couleur de fond sombre pour le hero sans image */
+    background-color: var(--background-dark); 
+    
+    color: var(--text-color-dark); /* Assurez-vous que cette couleur est claire */
+    padding: 4rem 2rem; /* Padding pour les grands écrans */
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: var(--text-color-dark);
+    margin-bottom: 2rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    max-width: 50rem; /* Environ 800px */
+    margin-bottom: 4rem;
+}
+
+/* Style des boutons génériques */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--text-color-dark);
+    padding: 1rem 2rem;
+    border-radius: 0.3125rem; /* 5px */
+    margin-top: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Couleur plus foncée au survol */
+    text-decoration: none;
+}
+
+/* Sections principales */
+section {
+    padding: 4rem 2rem; /* Espacement standard pour les sections */
+    max-width: 75rem; /* Largeur maximale du contenu (1200px) */
+    margin: 0 auto; /* Centre la section */
+}
+
+section h2, section h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+section p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+/* Section Intro (avant "À propos") */
+.intro {
+    background-color: var(--background-light);
+    color: var(--text-color-light);
+}
+
+/* Section À Propos */
+.about {
+    background-color: var(--background-light);
+    color: var(--text-color-light);
+    display: flex; /* Utilise flexbox pour aligner description et compétences */
+    flex-direction: column; /* Par défaut, en colonne, sera en ligne sur desktop */
+    gap: 4rem; /* Espacement entre la description et les compétences */
+}
+
+@media (min-width: 769px) { /* Au-dessus de la taille mobile */
+    .about {
+        flex-direction: row; /* En ligne sur desktop */
+        align-items: flex-start;
+        justify-content: center;
+    }
+    .about .description, .about .skills {
+        flex: 1; /* Distribue l'espace équitablement */
+        max-width: 50%; /* Limite la largeur de chaque colonne */
+    }
+}
+
+.about h3 {
+    margin-top: 4rem; /* Espacement spécifique après les premiers paragraphes dans "À propos" */
+}
+
+.about strong {
+    color: var(--primary-color);
+}
+
+/* Section Compétences (faisant partie de "À propos" selon votre HTML) */
+.about .skills {
+    background-color: var(--background-dark); /* Fond sombre pour les compétences */
+    color: var(--text-color-dark);
+    padding: 2rem; /* Padding interne */
+    border-radius: 0.5rem;
+}
+
+.about .skills h2 {
+    color: var(--primary-color);
+}
+
+.about .skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centre les tags de compétences */
+    gap: 1rem;
+    margin-bottom: 0; /* Pas de marge après la liste de compétences */
+}
+
+.about .skills ul li {
+    background-color: var(--secondary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.3125rem; /* 5px */
+    color: var(--text-color-dark);
+    font-weight: bold;
+}
+
+/* Section Projet Intro (avant les projets détaillés) */
+.projet-intro {
+    background-color: var(--background-light);
+    color: var(--text-color-light);
+    padding: 4rem 2rem;
+    max-width: 75rem;
+    margin: 0 auto;
+}
+
+/* Section Projets (grille) */
+.projets {
+    background-color: var(--background-light);
+    color: var(--text-color-light);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr)); /* Grille responsive (min 300px) */
+    gap: 2rem;
+    padding: 4rem 2rem;
+    max-width: 75rem;
+    margin: 0 auto;
+}
+
+.projets .projet {
+    border: 1px solid #ddd;
+    padding: 2rem;
+    border-radius: 0.5rem; /* 8px */
+    background-color: #fff;
+    box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.1); /* Ombre légère */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre l'image et le texte dans le projet */
+    text-align: center; /* Centre le texte */
+}
+
+.projets .projet-image-conteneur {
+    width: 100%; /* Prend toute la largeur disponible */
+    margin-bottom: 1rem;
+}
+
+.projets .projet-image {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Supprime l'espace sous l'image */
+    border-radius: 0.25rem;
+}
+
+.projets h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-align: center; /* Centre le titre du projet */
+}
+
+.projets p {
+    text-align: center; /* Centre le paragraphe du projet */
+}
+
+.projets .github-projet {
+    margin-top: 1rem;
+}
+
+/* --- Styles du Footer --- */
+footer {
+    background-color: var(--background-dark);
+    color: var(--text-color-dark);
+    text-align: center;
+    padding: 4rem 2rem;
+    display: flex; /* Utilise flexbox pour organiser le contenu */
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem; /* Espacement entre les blocs du footer */
+}
+
+.footer-top {
+    display: flex;
+    flex-direction: column; /* Par défaut en colonne, sera en ligne sur desktop */
+    gap: 2rem;
+    width: 100%;
+    max-width: 60rem; /* Limite la largeur du contenu supérieur du footer */
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (min-width: 769px) {
+    .footer-top {
+        flex-direction: row; /* En ligne sur les grands écrans */
+        text-align: left;
+    }
+    .footer-top > div {
+        flex: 1; /* Distribue l'espace */
+    }
+}
+
+
+footer h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+footer p {
+    margin-bottom: 1rem; /* Ajuste la marge pour les paragraphes du footer */
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+footer ul li a {
+    color: var(--text-color-dark);
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: var(--primary-color);
+}
+
+footer ul li a svg {
+    width: 1.875rem; /* 30px */
+    height: 1.875rem; /* 30px */
+    fill: currentColor;
+}
+
+.footer-low {
+    margin-top: 2rem; /* Espacement au-dessus du copyright */
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Ligne de séparation */
+    padding-top: 1rem;
+}
