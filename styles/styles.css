@@ -24,13 +24,32 @@ html {
 
 /* Styles par défaut pour le corps du document */
 body {
-    font-family: 'Arial', sans-serif; /* Police de caractère claire */
+    font-family: 'Open Sans', sans-serif; /* Police de caractère claire */
     line-height: 1.6; /* Hauteur de ligne pour une meilleure lisibilité */
     color: var(--text-color-light); /* Couleur de texte par défaut */
     background-color: var(--background-light); /* Couleur d'arrière-plan par défaut */
     overflow-x: hidden; /* Empêche le défilement horizontal dû au menu mobile */
 }
+/* Polices pour les titres (h1, h2, h3, etc.) */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; /* Exemple: Utilisez la graisse Bold */
+}
+/* Vous pouvez également appliquer Roboto à votre nom dans le header pour la cohérence */
+.header-logo .my-name {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500; /* Exemple: Utilisez la graisse Medium pour le nom */
+}
 
+/* Si vous avez d'autres éléments spécifiques où vous voulez une graisse différente de Roboto */
+.hero h1 {
+    font-weight: 700; /* Assurez-vous que le h1 est bien en gras */
+}
+
+/* Assurez-vous que les puces de liste (li) utilisent bien Open Sans si elles ne le font pas par défaut */
+ul li {
+    font-family: 'Open Sans', sans-serif;
+}
 /* Styles génériques pour les liens */
 a {
     color: var(--primary-color);
