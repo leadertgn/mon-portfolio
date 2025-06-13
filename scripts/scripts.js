@@ -42,3 +42,54 @@ document.addEventListener('click', (event) => {
         body.classList.remove('nav-open'); // Alors, ferme le menu
     }
 });
+
+// --- NOUVEAU CODE POUR LE FORMULAIRE DE CONTACT ---
+const contactForm = document.querySelector('.contact-form');
+const formMessage = document.createElement('p'); // Crée un élément p pour le message de succès/erreur
+formMessage.style.textAlign = 'center';
+formMessage.style.marginTop = '1rem';
+formMessage.style.fontWeight = 'bold';
+
+if (contactForm) {
+    // Insère le paragraphe du message juste avant le bouton d'envoi
+    contactForm.insertBefore(formMessage, contactForm.querySelector('.btn'));
+
+    contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Empêche la soumission par défaut (qui causerait la redirection)
+
+        const form = event.target;
+        const formData = new FormData(form); // Récupère toutes les données du formulaire
+        const formAction = form.action; // L'URL de Formspree
+
+        formMessage.textContent = 'Envoi en cours...';
+        formMessage.style.color = '#007bff'; // Couleur d'information
+
+        try {
+            const response = await fetch(formAction, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json' // Demande une réponse JSON de Formspree
+                }
+            });
+
+            if (response.ok) { // Si la réponse est OK (statut 200)
+                formMessage.textContent = 'Message envoyé avec succès ! Merci de m\'avoir contacté.';
+                formMessage.style.color = 'green';
+                form.reset(); // Réinitialise tous les champs du formulaire
+            } else {
+                const data = await response.json(); // Tente de lire l'erreur de Formspree
+                if (data.errors) {
+                    formMessage.textContent = `Erreur : ${data.errors.map(err => err.message).join(', ')}`;
+                } else {
+                    formMessage.textContent = 'Une erreur est survenue lors de l\'envoi du message.';
+                }
+                formMessage.style.color = 'red';
+            }
+        } catch (error) {
+            console.error('Erreur réseau ou inattendue:', error);
+            formMessage.textContent = 'Problème de connexion. Veuillez réessayer plus tard.';
+            formMessage.style.color = 'red';
+        }
+    });
+}

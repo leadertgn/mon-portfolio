@@ -224,6 +224,78 @@ header {
     margin-bottom: 4rem;
 }
 
+/* --- Styles des Sections de Contenu (suite) --- */
+
+/* Section Contact */
+.contact {
+    background-color: var(--background-light);
+    color: var(--text-color-light);
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 75rem;
+    margin: 0 auto;
+}
+
+.contact p {
+    max-width: 50rem; /* Limite la largeur du paragraphe introductif */
+    margin: 0 auto 3rem auto; /* Centre le paragraphe et ajoute de l'espace en dessous */
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 40rem; /* Limite la largeur du formulaire pour une meilleure lisibilité */
+    margin: 0 auto; /* Centre le formulaire */
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1); /* 4px 10px */
+    text-align: left; /* Alignement du texte à gauche à l'intérieur du formulaire */
+}
+
+.form-group {
+    margin-bottom: 1.5rem; /* Espace entre les groupes de champs */
+}
+
+.form-group label {
+    display: block; /* Rend le label au-dessus du champ */
+    margin-bottom: 0.5rem; /* Espace entre le label et le champ */
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%; /* Prend toute la largeur disponible */
+    padding: 0.8rem; /* Espacement interne */
+    border: 1px solid #ccc;
+    border-radius: 0.3125rem; /* 5px */
+    font-size: 1rem;
+    font-family: 'Arial', sans-serif; /* Assure la cohérence des polices */
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color); /* Bordure colorée au focus */
+    outline: none; /* Supprime l'outline par défaut du navigateur */
+    box-shadow: 0 0 0 0.1875rem rgba(0, 123, 255, 0.25); /* Ombre légère au focus (3px) */
+}
+
+.contact-form button.btn {
+    width: auto; /* Le bouton ne prend pas toute la largeur par défaut */
+    display: block; /* Le place sur une nouvelle ligne */
+    margin: 2rem auto 0 auto; /* Centre le bouton */
+    text-align: center;
+}
+
+/* Ajustements pour les mobiles */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 1.5rem; /* Moins de padding sur mobile */
+    }
+}
 /* Style des boutons génériques */
 .btn {
     display: inline-block;
