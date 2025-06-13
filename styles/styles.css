@@ -1,116 +1,131 @@
 /* --- Styles Généraux et Réinitialisation --- */
 :root {
-    /* Couleurs - N'hésitez pas à les ajuster ! */
+    /* Couleurs du mode CLAIR (par défaut) */
     --primary-color: #007bff; /* Bleu standard */
     --secondary-color: #6c757d; /* Gris pour les éléments secondaires */
-    --background-light: #f8f9fa; /* Arrière-plan clair */
-    --background-dark: #343a40; /* Arrière-plan sombre (pour le header/footer) */
-    --text-color-light: #333; /* Texte foncé sur fond clair */
-    --text-color-dark: #f8f9fa; /* Texte clair sur fond sombre */
+    --background-body: #f8f9fa; /* Arrière-plan du body en mode clair */
+    --background-header-footer: #343a40; /* Arrière-plan header/footer en mode clair */
+    --background-card: #fff; /* Fond des cartes/éléments sur fond clair */
+    --text-main: #333; /* Texte principal sur fond clair */
+    --text-header-footer: #f8f9fa; /* Texte dans header/footer en mode clair */
+    --border-color: #ddd; /* Couleur des bordures */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Couleur des ombres */
+    --primary-hover-color: #0056b3; /* Couleur au survol du bouton primaire */
 }
 
-/* Réinitialisation de base pour tous les éléments */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Inclut padding et border dans la largeur/hauteur totale */
+/* Styles pour le mode SOMBRE */
+body.dark-mode {
+    --primary-color: #8ab4f8; /* Bleu clair pour le mode sombre */
+    --secondary-color: #bdc1c6; /* Gris clair pour éléments secondaires */
+    --background-body: #202124; /* Arrière-plan principal plus sombre */
+    --background-header-footer: #121212; /* Arrière-plan très sombre pour header/footer */
+    --background-card: #2d2d2d; /* Fond des cartes/éléments sur fond sombre */
+    --text-main: #e8eaed; /* Texte clair sur fond sombre */
+    --text-header-footer: #e8eaed; /* Texte clair pour header/footer en mode sombre */
+    --border-color: #444; /* Bordures plus foncées */
+    --shadow-color: rgba(0, 0, 0, 0.3); /* Ombre plus prononcée en mode sombre si vous voulez */
+    --primary-hover-color: #6a9de8; /* Couleur au survol du bouton primaire en mode sombre */
 }
 
 /* Base pour le défilement fluide et la taille de police REM */
 html {
-    scroll-behavior: smooth; /* Active le défilement fluide pour les ancres */
-    font-size: 16px; /* Définit 1rem = 16px */
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 /* Styles par défaut pour le corps du document */
 body {
-    font-family: 'Open Sans', sans-serif; /* Police de caractère claire */
-    line-height: 1.6; /* Hauteur de ligne pour une meilleure lisibilité */
-    color: var(--text-color-light); /* Couleur de texte par défaut */
-    background-color: var(--background-light); /* Couleur d'arrière-plan par défaut */
-    overflow-x: hidden; /* Empêche le défilement horizontal dû au menu mobile */
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-main); /* Utilisez la variable dynamique */
+    background-color: var(--background-body); /* Utilisez la variable dynamique */
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce lors du changement de mode */
 }
+
 /* Polices pour les titres (h1, h2, h3, etc.) */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto', sans-serif;
-    font-weight: 700; /* Exemple: Utilisez la graisse Bold */
+    font-weight: 700;
 }
-/* Vous pouvez également appliquer Roboto à votre nom dans le header pour la cohérence */
+
 .header-logo .my-name {
     font-family: 'Roboto', sans-serif;
-    font-weight: 500; /* Exemple: Utilisez la graisse Medium pour le nom */
+    font-weight: 500;
 }
 
-/* Si vous avez d'autres éléments spécifiques où vous voulez une graisse différente de Roboto */
 .hero h1 {
-    font-weight: 700; /* Assurez-vous que le h1 est bien en gras */
+    font-weight: 700;
 }
 
-/* Assurez-vous que les puces de liste (li) utilisent bien Open Sans si elles ne le font pas par défaut */
 ul li {
     font-family: 'Open Sans', sans-serif;
 }
+
 /* Styles génériques pour les liens */
 a {
     color: var(--primary-color);
-    text-decoration: none; /* Supprime le soulignement par défaut */
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    text-decoration: underline; /* Réactive le soulignement au survol */
+    text-decoration: underline;
 }
 
 /* Styles génériques pour les listes non ordonnées */
 ul {
-    list-style: none; /* Supprime les puces des listes */
+    list-style: none;
 }
 
 /* --- Styles du Header (Version Desktop par défaut) --- */
 header {
-    background-color: var(--background-dark);
-    color: var(--text-color-dark);
-    padding: 1rem 2rem; /* Espace interne de 1rem haut/bas, 2rem gauche/droite */
+    background-color: var(--background-header-footer); /* Utilisez la variable dynamique */
+    color: var(--text-header-footer); /* Utilisez la variable dynamique */
+    padding: 1rem 2rem;
     display: flex;
-    justify-content: space-between; /* Aligne le logo à gauche et la navigation/bouton à droite */
-    align-items: center; /* Centre verticalement les éléments */
-    position: sticky; /* Rends le header fixe en haut de l'écran */
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
     top: 0;
-    z-index: 1000; /* Assure que le header est au-dessus des autres éléments */
+    z-index: 1000;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Style du conteneur logo et nom */
 .header-logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem; /* Espacement entre l'image et le texte */
+    gap: 0.5rem;
     font-weight: bold;
-    font-size: 1.5rem; /* Taille de police pour le nom */
-    color: var(--text-color-dark);
+    font-size: 1.5rem;
+    color: var(--text-header-footer); /* Utilisez la variable dynamique */
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .header-logo .header-img img {
-    height: 2.5rem; /* Hauteur de l'image de profil (40px) */
-    width: 2.5rem; /* Largeur de l'image de profil (40px) */
-    border-radius: 50%; /* Rend l'image ronde */
-    object-fit: cover; /* Assure que l'image couvre bien l'espace */
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .header-logo .my-name {
-    margin: 0; /* Supprime la marge par défaut des paragraphes */
+    margin: 0;
 }
 
 /* Navigation principale sur Desktop */
 .main-nav ul {
-    display: flex; /* Affiche les liens de navigation en ligne */
-    gap: 2rem; /* Espacement entre les éléments de navigation */
+    display: flex;
+    gap: 2rem;
 }
 
 .main-nav a {
-    color: var(--text-color-dark);
+    color: var(--text-header-footer); /* Utilisez la variable dynamique */
     font-weight: bold;
-    padding: 0.5rem 0; /* Padding pour les liens */
-    transition: color 0.3s ease; /* Transition douce de la couleur au survol */
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
 }
 
 .main-nav a:hover {
@@ -120,96 +135,119 @@ header {
 
 /* --- Bouton Burger (caché par défaut sur Desktop) --- */
 .menu-toggle {
-    display: none; /* Le bouton burger est caché sur les grands écrans */
+    display: none;
 }
 
 /* Styles des barres du bouton burger */
 .menu-toggle .bar {
     display: block;
-    width: 1.5625rem; /* Largeur d'une barre (25px) */
-    height: 0.1875rem; /* Épaisseur d'une barre (3px) */
-    background-color: var(--text-color-dark);
-    margin: 0.3125rem auto; /* Espacement entre les barres (5px) */
-    transition: all 0.3s ease-in-out; /* Animation pour la transformation en croix */
+    width: 1.5625rem;
+    height: 0.1875rem;
+    background-color: var(--text-header-footer); /* Utilisez la variable dynamique */
+    margin: 0.3125rem auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Bouton de bascule de thème --- */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+    margin-left: auto; /* Pousse le bouton vers la droite dans le header flex */
+    display: flex; /* Pour centrer l'icône SVG */
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease; /* Transition pour la couleur de l'icône */
+}
+
+.theme-toggle svg {
+    width: 1.875rem; /* 30px, ajustez selon la taille désirée */
+    height: 1.875rem; /* 30px */
+    fill: var(--text-header-footer); /* La couleur du SVG suivra la couleur du texte du header */
+    transition: fill 0.3s ease;
+}
+
+.theme-toggle:hover svg {
+    fill: var(--primary-color);
 }
 
 /* --- Media Queries pour le Responsive Design (Mobile First) --- */
 @media (max-width: 768px) {
     header {
-        flex-wrap: nowrap; /* Empêche le retour à la ligne des éléments du header */
+        flex-wrap: nowrap;
+        justify-content: space-between; /* Permet un espacement équitable */
+        gap: 1rem; /* Ajoute un petit espace entre les éléments */
     }
 
-    /* Afficher le bouton burger sur mobile */
+    /* Ordre des éléments dans le header pour mobile */
+    .header-logo { order: 1; margin-right: auto; /* Pour pousser les autres éléments à droite */ }
+    .theme-toggle { order: 2; margin-left: 0; /* Réinitialise la marge auto */ }
+    .menu-toggle { order: 3; }
+
     .menu-toggle {
-        display: block; /* Rend le bouton burger visible */
+        display: block;
         cursor: pointer;
         background: none;
         border: none;
         padding: 0.5rem;
-        z-index: 1001; /* Assure qu'il est au-dessus du menu déplié */
+        z-index: 1001;
     }
 
-    /* Styles de la navigation mobile (initialement cachée) */
     .main-nav {
-        position: fixed; /* Position fixe par rapport à la fenêtre */
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--background-dark); /* Fond du menu quand il est ouvert */
+        background-color: var(--background-header-footer); /* S'adapte au thème */
         display: flex;
-        flex-direction: column; /* Les liens s'empilent verticalement */
-        justify-content: center; /* Centre les liens verticalement */
-        align-items: center; /* Centre les liens horizontalement */
-        transform: translateX(100%); /* Décale le menu hors de l'écran par défaut */
-        transition: transform 0.3s ease-in-out; /* Animation de glissement */
-        z-index: 999; /* En dessous du bouton burger */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
     }
 
-    /* Quand la classe 'nav-open' est sur le body, le menu apparaît */
     body.nav-open .main-nav {
-        transform: translateX(0); /* Fait glisser le menu sur l'écran */
+        transform: translateX(0);
     }
 
-    /* Styles des éléments de liste dans le menu mobile */
     .main-nav ul {
-        flex-direction: column; /* Les éléments de liste s'empilent */
-        gap: 2rem; /* Plus d'espace entre les liens du menu mobile */
+        flex-direction: column;
+        gap: 2rem;
         text-align: center;
     }
 
-    /* Styles des liens dans le menu mobile */
     .main-nav a {
-        font-size: 2rem; /* Taille de police plus grande pour la lisibilité sur mobile */
-        padding: 1rem 0; /* Augmente la zone de clic */
+        font-size: 2rem;
+        padding: 1rem 0;
     }
 
-    /* Animations du bouton burger en croix */
     body.nav-open .menu-toggle .bar:nth-child(1) {
-        transform: translateY(0.5rem) rotate(45deg); /* Barre du haut */
+        transform: translateY(0.5rem) rotate(45deg);
     }
 
     body.nav-open .menu-toggle .bar:nth-child(2) {
-        opacity: 0; /* Barre du milieu disparaît */
+        opacity: 0;
     }
 
     body.nav-open .menu-toggle .bar:nth-child(3) {
-        transform: translateY(-0.5rem) rotate(-45deg); /* Barre du bas */
+        transform: translateY(-0.5rem) rotate(-45deg);
     }
 
-    /* Ajustements généraux pour les sections sur mobile */
     section {
-        padding: 2rem 1rem; /* Moins de padding sur les côtés */
+        padding: 2rem 1rem;
     }
 
-    /* Ajustements pour la section Projets sur mobile */
     .projects {
-        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        grid-template-columns: 1fr;
     }
 
-    /* Ajustements pour les compétences sur mobile */
     .skills ul {
-        justify-content: flex-start; /* Aligne les compétences à gauche sur mobile */
+        justify-content: flex-start;
     }
 }
 
@@ -217,37 +255,45 @@ header {
 
 /* Section Accueil (Hero) */
 .hero {
-    min-height: 80vh; /* Prend au moins 80% de la hauteur de la fenêtre */
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     
-    /* Couleur de fond sombre pour le hero sans image */
-    background-color: var(--background-dark); 
-    
-    color: var(--text-color-dark); /* Assurez-vous que cette couleur est claire */
-    padding: 4rem 2rem; /* Padding pour les grands écrans */
+    background-color: var(--background-header-footer); /* Garde le fond sombre pour le hero */
+    color: var(--text-header-footer); /* Texte clair pour le hero */
+    padding: 4rem 2rem;
 }
 
 .hero h1 {
     font-size: 2.5rem;
-    color: var(--text-color-dark);
+    color: var(--text-header-footer); /* Texte clair */
     margin-bottom: 2rem;
 }
 
 .hero p {
     font-size: 1.5rem;
-    max-width: 50rem; /* Environ 800px */
+    max-width: 50rem;
     margin-bottom: 4rem;
 }
+
+/* Boutons du hero pour Desktop */
+@media (min-width: 769px) {
+    .hero p.btn_projets,
+    .hero p.btn_cv {
+        display: inline-block;
+        margin: 1rem 1rem 0;
+    }
+}
+
 /* --- Styles des Sections de Contenu (suite) --- */
 
 /* Section Contact */
 .contact {
-    background-color: var(--background-light);
-    color: var(--text-color-light);
+    background-color: var(--background-body); /* S'adapte au thème */
+    color: var(--text-main); /* S'adapte au thème */
     text-align: center;
     padding: 4rem 2rem;
     max-width: 75rem;
@@ -255,28 +301,29 @@ header {
 }
 
 .contact p {
-    max-width: 50rem; /* Limite la largeur du paragraphe introductif */
-    margin: 0 auto 3rem auto; /* Centre le paragraphe et ajoute de l'espace en dessous */
+    max-width: 50rem;
+    margin: 0 auto 3rem auto;
     text-align: center;
 }
 
 .contact-form {
-    max-width: 40rem; /* Limite la largeur du formulaire pour une meilleure lisibilité */
-    margin: 0 auto; /* Centre le formulaire */
+    max-width: 40rem;
+    margin: 0 auto;
     padding: 2rem;
-    background-color: #fff;
+    background-color: var(--background-card); /* Fond de carte pour le formulaire */
     border-radius: 0.5rem;
-    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1); /* 4px 10px */
-    text-align: left; /* Alignement du texte à gauche à l'intérieur du formulaire */
+    box-shadow: 0 0.25rem 0.625rem var(--shadow-color); /* Utilise la variable d'ombre */
+    text-align: left;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group {
-    margin-bottom: 1.5rem; /* Espace entre les groupes de champs */
+    margin-bottom: 1.5rem;
 }
 
 .form-group label {
-    display: block; /* Rend le label au-dessus du champ */
-    margin-bottom: 0.5rem; /* Espace entre le label et le champ */
+    display: block;
+    margin-bottom: 0.5rem;
     font-weight: bold;
     color: var(--primary-color);
 }
@@ -284,63 +331,68 @@ header {
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group textarea {
-    width: 100%; /* Prend toute la largeur disponible */
-    padding: 0.8rem; /* Espacement interne */
-    border: 1px solid #ccc;
-    border-radius: 0.3125rem; /* 5px */
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color); /* Utilise la variable de bordure */
+    border-radius: 0.3125rem;
     font-size: 1rem;
-    font-family: 'Arial', sans-serif; /* Assure la cohérence des polices */
-    transition: border-color 0.3s ease;
+    font-family: 'Open Sans', sans-serif; /* Assure la cohérence des polices */
+    background-color: var(--background-card); /* Le fond des inputs aussi */
+    color: var(--text-main); /* La couleur du texte dans les inputs */
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
 .form-group textarea:focus {
-    border-color: var(--primary-color); /* Bordure colorée au focus */
-    outline: none; /* Supprime l'outline par défaut du navigateur */
-    box-shadow: 0 0 0 0.1875rem rgba(0, 123, 255, 0.25); /* Ombre légère au focus (3px) */
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 0.1875rem rgba(0, 123, 255, 0.25); /* L'ombre au focus peut rester fixe ou utiliser une variable */
 }
 
 .contact-form button.btn {
-    width: auto; /* Le bouton ne prend pas toute la largeur par défaut */
-    display: block; /* Le place sur une nouvelle ligne */
-    margin: 2rem auto 0 auto; /* Centre le bouton */
+    width: auto;
+    display: block;
+    margin: 2rem auto 0 auto;
     text-align: center;
 }
 
 /* Ajustements pour les mobiles */
 @media (max-width: 768px) {
     .contact-form {
-        padding: 1.5rem; /* Moins de padding sur mobile */
+        padding: 1.5rem;
     }
 }
+
 /* Style des boutons génériques */
 .btn {
     display: inline-block;
     background-color: var(--primary-color);
-    color: var(--text-color-dark);
+    color: var(--text-header-footer); /* Le texte du bouton reste clair */
     padding: 1rem 2rem;
-    border-radius: 0.3125rem; /* 5px */
+    border-radius: 0.3125rem;
     margin-top: 2rem;
     transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #0056b3; /* Couleur plus foncée au survol */
+    background-color: var(--primary-hover-color); /* Couleur plus foncée au survol */
     text-decoration: none;
 }
 
 /* Sections principales */
 section {
-    padding: 4rem 2rem; /* Espacement standard pour les sections */
-    max-width: 75rem; /* Largeur maximale du contenu (1200px) */
-    margin: 0 auto; /* Centre la section */
+    padding: 4rem 2rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 section h2, section h3 {
     text-align: center;
     margin-bottom: 2rem;
     color: var(--primary-color);
+    transition: color 0.3s ease;
 }
 
 section p {
@@ -350,33 +402,33 @@ section p {
 
 /* Section Intro (avant "À propos") */
 .intro {
-    background-color: var(--background-light);
-    color: var(--text-color-light);
+    background-color: var(--background-body); /* S'adapte au thème */
+    color: var(--text-main); /* S'adapte au thème */
 }
 
 /* Section À Propos */
 .about {
-    background-color: var(--background-light);
-    color: var(--text-color-light);
-    display: flex; /* Utilise flexbox pour aligner description et compétences */
-    flex-direction: column; /* Par défaut, en colonne, sera en ligne sur desktop */
-    gap: 4rem; /* Espacement entre la description et les compétences */
+    background-color: var(--background-body); /* S'adapte au thème */
+    color: var(--text-main); /* S'adapte au thème */
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
 }
 
-@media (min-width: 769px) { /* Au-dessus de la taille mobile */
+@media (min-width: 769px) {
     .about {
-        flex-direction: row; /* En ligne sur desktop */
+        flex-direction: row;
         align-items: flex-start;
         justify-content: center;
     }
     .about .description, .about .skills {
-        flex: 1; /* Distribue l'espace équitablement */
-        max-width: 50%; /* Limite la largeur de chaque colonne */
+        flex: 1;
+        max-width: 50%;
     }
 }
 
 .about h3 {
-    margin-top: 4rem; /* Espacement spécifique après les premiers paragraphes dans "À propos" */
+    margin-top: 4rem;
 }
 
 .about strong {
@@ -385,10 +437,11 @@ section p {
 
 /* Section Compétences (faisant partie de "À propos" selon votre HTML) */
 .about .skills {
-    background-color: var(--background-dark); /* Fond sombre pour les compétences */
-    color: var(--text-color-dark);
-    padding: 2rem; /* Padding interne */
+    background-color: var(--background-header-footer); /* Garde le fond sombre dans les deux modes, mais suit la variable */
+    color: var(--text-header-footer); /* Texte clair */
+    padding: 2rem;
     border-radius: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .about .skills h2 {
@@ -398,23 +451,24 @@ section p {
 .about .skills ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Centre les tags de compétences */
+    justify-content: center;
     gap: 1rem;
-    margin-bottom: 0; /* Pas de marge après la liste de compétences */
+    margin-bottom: 0;
 }
 
 .about .skills ul li {
     background-color: var(--secondary-color);
     padding: 0.5rem 1rem;
-    border-radius: 0.3125rem; /* 5px */
-    color: var(--text-color-dark);
+    border-radius: 0.3125rem;
+    color: var(--text-header-footer); /* Texte clair */
     font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Section Projet Intro (avant les projets détaillés) */
 .projet-intro {
-    background-color: var(--background-light);
-    color: var(--text-color-light);
+    background-color: var(--background-body);
+    color: var(--text-main);
     padding: 4rem 2rem;
     max-width: 75rem;
     margin: 0 auto;
@@ -422,10 +476,10 @@ section p {
 
 /* Section Projets (grille) */
 .projets {
-    background-color: var(--background-light);
-    color: var(--text-color-light);
+    background-color: var(--background-body);
+    color: var(--text-main);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr)); /* Grille responsive (min 300px) */
+    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
     gap: 2rem;
     padding: 4rem 2rem;
     max-width: 75rem;
@@ -433,37 +487,38 @@ section p {
 }
 
 .projets .projet {
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color); /* Utilise la variable de bordure */
     padding: 2rem;
-    border-radius: 0.5rem; /* 8px */
-    background-color: #fff;
-    box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.1); /* Ombre légère */
+    border-radius: 0.5rem;
+    background-color: var(--background-card); /* Fond de carte pour les projets */
+    box-shadow: 0 0.125rem 0.3125rem var(--shadow-color); /* Utilise la variable d'ombre */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centre l'image et le texte dans le projet */
-    text-align: center; /* Centre le texte */
+    align-items: center;
+    text-align: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .projets .projet-image-conteneur {
-    width: 100%; /* Prend toute la largeur disponible */
+    width: 100%;
     margin-bottom: 1rem;
 }
 
 .projets .projet-image {
     max-width: 100%;
     height: auto;
-    display: block; /* Supprime l'espace sous l'image */
+    display: block;
     border-radius: 0.25rem;
 }
 
 .projets h3 {
     color: var(--primary-color);
     margin-bottom: 1rem;
-    text-align: center; /* Centre le titre du projet */
+    text-align: center;
 }
 
 .projets p {
-    text-align: center; /* Centre le paragraphe du projet */
+    text-align: center;
 }
 
 .projets .github-projet {
@@ -472,36 +527,36 @@ section p {
 
 /* --- Styles du Footer --- */
 footer {
-    background-color: var(--background-dark);
-    color: var(--text-color-dark);
+    background-color: var(--background-header-footer); /* S'adapte au thème */
+    color: var(--text-header-footer); /* S'adapte au thème */
     text-align: center;
     padding: 4rem 2rem;
-    display: flex; /* Utilise flexbox pour organiser le contenu */
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem; /* Espacement entre les blocs du footer */
+    gap: 2rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .footer-top {
     display: flex;
-    flex-direction: column; /* Par défaut en colonne, sera en ligne sur desktop */
+    flex-direction: column;
     gap: 2rem;
     width: 100%;
-    max-width: 60rem; /* Limite la largeur du contenu supérieur du footer */
+    max-width: 60rem;
     justify-content: space-around;
     align-items: center;
 }
 
 @media (min-width: 769px) {
     .footer-top {
-        flex-direction: row; /* En ligne sur les grands écrans */
+        flex-direction: row;
         text-align: left;
     }
     .footer-top > div {
-        flex: 1; /* Distribue l'espace */
+        flex: 1;
     }
 }
-
 
 footer h2 {
     color: var(--primary-color);
@@ -509,7 +564,7 @@ footer h2 {
 }
 
 footer p {
-    margin-bottom: 1rem; /* Ajuste la marge pour les paragraphes du footer */
+    margin-bottom: 1rem;
 }
 
 footer ul {
@@ -521,7 +576,7 @@ footer ul {
 }
 
 footer ul li a {
-    color: var(--text-color-dark);
+    color: var(--text-header-footer); /* S'adapte au thème */
     transition: color 0.3s ease;
 }
 
@@ -530,14 +585,23 @@ footer ul li a:hover {
 }
 
 footer ul li a svg {
-    width: 1.875rem; /* 30px */
-    height: 1.875rem; /* 30px */
-    fill: currentColor;
+    width: 1.875rem;
+    height: 1.875rem;
+    fill: currentColor; /* Permet au SVG de prendre la couleur du texte parent */
+    transition: fill 0.3s ease;
 }
 
 .footer-low {
-    margin-top: 2rem; /* Espacement au-dessus du copyright */
+    margin-top: 2rem;
     width: 100%;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Ligne de séparation */
+    border-top: 1px solid var(--border-color); /* Utilise la variable de bordure */
     padding-top: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+/* Réinitialisation de base pour tous les éléments */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Inclut padding et border dans la largeur/hauteur totale */
 }
