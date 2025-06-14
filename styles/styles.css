@@ -300,7 +300,9 @@ header {
     max-width: 50rem;
     margin-bottom: 4rem;
 }
-
+p.btn_cv {
+    text-align: center;
+}
 /* Boutons du hero pour Desktop */
 @media (min-width: 769px) {
     .hero p.btn_projets,
