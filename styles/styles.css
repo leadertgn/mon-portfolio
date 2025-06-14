@@ -15,8 +15,8 @@
 
 /* Styles pour le mode SOMBRE */
 body.dark-mode {
-    --primary-color: #8ab4f8; /* Bleu clair pour le mode sombre */
-    --secondary-color: #bdc1c6; /* Gris clair pour éléments secondaires */
+    --primary-color: #3069c5; /* Bleu  pour le mode sombre */
+    --secondary-color: #464749; /* Gris clair pour éléments secondaires */ /* bdc1c6 */
     --background-body: #202124; /* Arrière-plan principal plus sombre */
     --background-header-footer: #121212; /* Arrière-plan très sombre pour header/footer */
     --background-card: #2d2d2d; /* Fond des cartes/éléments sur fond sombre */
@@ -29,7 +29,7 @@ body.dark-mode {
 
 /* Base pour le défilement fluide et la taille de police REM */
 html {
-    scroll-behavior: smooth;
+    scroll-behavior:smooth;
     font-size: 16px;
 }
 
@@ -39,7 +39,7 @@ body {
     line-height: 1.6;
     color: var(--text-main); /* Utilisez la variable dynamique */
     background-color: var(--background-body); /* Utilisez la variable dynamique */
-    overflow-x: hidden;
+    overflow-x: hidden; /* Empêche la barre de scroll suivant la largeur */
     transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce lors du changement de mode */
 }
 
@@ -117,7 +117,7 @@ header {
 
 /* Navigation principale sur Desktop */
 .main-nav ul {
-    display: flex;
+    display: flex;  
     gap: 2rem;
 }
 
@@ -177,7 +177,7 @@ header {
 @media (max-width: 768px) {
     header {
         flex-wrap: nowrap;
-        justify-content: space-between; /* Permet un espacement équitable */
+        justify-content: space-b; /* Permet un espacement équitable */
         gap: 1rem; /* Ajoute un petit espace entre les éléments */
     }
 
@@ -255,7 +255,7 @@ header {
 
 /* Section Accueil (Hero) */
 .hero {
-    min-height: 80vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -265,8 +265,30 @@ header {
     background-color: var(--background-header-footer); /* Garde le fond sombre pour le hero */
     color: var(--text-header-footer); /* Texte clair pour le hero */
     padding: 4rem 2rem;
-}
 
+    background-image: url('../assets/backgrounds/hero_background.webp');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before, .contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+.hero > *, .hero h1, .hero p, .hero .button-primary, .contact h2, .contact p, .contact form, .contact label{
+    position: relative;
+    z-index: 2;
+    color: var(--text-main);
+}
 .hero h1 {
     font-size: 2.5rem;
     color: var(--text-header-footer); /* Texte clair */
@@ -298,6 +320,14 @@ header {
     padding: 4rem 2rem;
     max-width: 75rem;
     margin: 0 auto;
+
+    background-image: url(../assets/backgrounds/contact_background.webp);
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
 }
 
 .contact p {
@@ -355,6 +385,7 @@ header {
     display: block;
     margin: 2rem auto 0 auto;
     text-align: center;
+    cursor: pointer;
 }
 
 /* Ajustements pour les mobiles */
@@ -472,6 +503,7 @@ section p {
     padding: 4rem 2rem;
     max-width: 75rem;
     margin: 0 auto;
+    text-align: center;
 }
 
 /* Section Projets (grille) */
@@ -536,6 +568,30 @@ footer {
     align-items: center;
     gap: 2rem;
     transition: background-color 0.3s ease, color 0.3s ease;
+
+    background-image: url("../assets/backgrounds/hero_background.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+
+}
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+footer p, footer .footer-top, footer .footer-low {
+    position: relative;
+    z-index: 2;
+    color: var(--text-main);
 }
 
 .footer-top {
@@ -551,7 +607,7 @@ footer {
 @media (min-width: 769px) {
     .footer-top {
         flex-direction: row;
-        text-align: left;
+        /*text-align: left;*/
     }
     .footer-top > div {
         flex: 1;
@@ -561,6 +617,7 @@ footer {
 footer h2 {
     color: var(--primary-color);
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 footer p {
