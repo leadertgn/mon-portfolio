@@ -252,7 +252,123 @@ header {
 }
 
 /* --- Styles des Sections de Contenu --- */
+/* styles/styles.css */
 
+/* Section Ressources */
+.resources-section {
+    padding: 4rem 2rem;
+    background-color: var(--background-body); /* Ou une de vos couleurs de fond de thème */
+    color: var(--text-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center; /* Centre le titre */
+}
+
+.resources-section h2 {
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: var(--text-main);
+}
+
+.ebook-card {
+    display: flex;
+    flex-direction: column; /* Par défaut en colonne pour mobile */
+    align-items: center;
+    max-width: 60rem; /* Largeur maximale de la carte d'ebook */
+    margin: 0 auto;
+    background-color: var(--background-card); /* Couleur de fond pour la carte */
+    border-radius: 8px;
+    box-shadow: var(--shadow-small); /* Ombre légère */
+    overflow: hidden; /* Assure que les coins arrondis sont respectés */
+}
+
+.ebook-cover {
+    flex-shrink: 0; /* Empêche l'image de rétrécir */
+    width: 100%; /* Pleine largeur sur mobile */
+    max-width: 300px; /* Largeur max pour la couverture */
+    margin-bottom: 1.5rem; /* Espace sous l'image sur mobile */
+}
+
+.ebook-cover img {
+    width: 100%;
+    height: auto;
+    display: block; /* Supprime l'espace sous l'image */
+    border-radius: 8px 8px 0 0; /* Coins arrondis seulement en haut pour mobile */
+}
+
+.ebook-details {
+    padding: 2rem;
+    text-align: left; /* Texte aligné à gauche à l'intérieur des détails */
+}
+
+.ebook-details h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color); /* Couleur primaire pour le titre de l'ebook */
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.ebook-details .subtitle {
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.ebook-details p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.ebook-details ul {
+    list-style: none; /* Supprime les puces par défaut */
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.ebook-details ul li {
+    position: relative;
+    padding-left: 1.5rem; /* Espace pour l'icône */
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.ebook-details ul li::before {
+    content: '✅'; /* Icône de coche */
+    position: absolute;
+    left: 0;
+    color: var(--primary-color); /* Couleur de la coche */
+}
+
+/* Styles pour le bouton (vous devriez déjà avoir .button-primary) */
+.resources-section .button-primary {
+    margin-top: 1rem;
+    display: inline-block; /* Pour que le padding fonctionne bien */
+}
+
+
+/* Responsive pour les écrans plus grands (desktop/tablette) */
+@media (min-width: 768px) {
+    .ebook-card {
+        flex-direction: row; /* En ligne sur les grands écrans */
+        text-align: left;
+    }
+
+    .ebook-cover {
+        width: 40%; /* L'image prend 40% de la largeur */
+        max-width: 250px; /* Limite la taille de l'image */
+        margin-bottom: 0; /* Pas d'espace en bas si l'image est à côté */
+        margin-right: 2rem; /* Espace à droite de l'image */
+    }
+
+    .ebook-cover img {
+        border-radius: 8px 0 0 8px; /* Coins arrondis à gauche pour desktop */
+    }
+
+    .ebook-details {
+        flex-grow: 1; /* Les détails prennent le reste de l'espace */
+        text-align: left;
+    }
+}
 /* Section Accueil (Hero) */
 .hero {
     min-height: 100vh;
