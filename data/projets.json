@@ -1,0 +1,64 @@
+{
+  "projets": [
+    {
+      "id": 1,
+      "titre": "Documentation Technique TRC25",
+      "description": "Création d'un site web statique responsive pour documenter le projet robotique TRC25, avec interface intuitive, navigation latérale et menu hamburger. Ce projet met en valeur mes compétences en intégration front-end et structuration de contenu technique.",
+      "technologies": ["HTML5", "CSS3", "JavaScript"],
+      "image": "assets/images/robostim_meca_test_1.png",
+      "alt": "Documentation Technique TRC25",
+      "lien": "https://leadertgn.github.io/TRC25-Documentation-Mecanique/",
+      "categorie": "documentation"
+    },
+    {
+      "id": 2,
+      "titre": "Interface de Surveillance IoT",
+      "description": "Développement d'une interface web interactive pour la surveillance en temps réel de paramètres environnementaux (température, humidité de l'air et du sol). Ce projet, basé sur l'ESP8266, a permis de prototyper la visualisation des données, initialement simulées via un générateur aléatoire. Il démontre ma capacité à concevoir des solutions IoT avec une interface utilisateur intuitive.",
+      "technologies": ["HTML", "CSS", "JavaScript", "ESP8266"],
+      "image": "assets/images/surveillance_capture.webp",
+      "alt": "Interface de Surveillance en Temps Réel",
+      "lien": "https://leadertgn.github.io/surveillance-en-r-el/",
+      "categorie": "iot"
+    },
+    {
+      "id": 3,
+      "titre": "Documentation Technique Tekbot Challenge Robotique 2025",
+      "description": "Rédaction et mise en ligne de la documentation technique du projet Tekbot Challenge Robotique 2025 pour l'équipe BIR. Le site présente de manière claire et structurée tout le processus de conception mécanique, des modélisations aux assemblages.",
+      "technologies": ["HTML5", "CSS3", "JavaScript", "MkDocs", "Markdown"],
+      "image": "assets/images/robostim_meca_test_2.png",
+      "alt": "Documentation Technique Tekbot Challenge",
+      "lien": "https://leadertgn.github.io/DOC-MECA/",
+      "categorie": "documentation"
+    },
+    {
+      "id": 4,
+      "titre": "Git Zéroo",
+      "description": "Contribution à une plateforme interactive dédiée à Git et GitHub. J'ai conçu et intégré la page \"À propos\" avec un design responsive.",
+      "technologies": ["HTML5", "CSS3"],
+      "image": "assets/images/gitzeroo.png",
+      "alt": "plateforme git",
+      "lien": "https://leadertgn.github.io/Tuto_training/",
+      "categorie": "web"
+    },
+    {
+      "id": 5,
+      "titre": "Portfolio personnel",
+      "description": "Ce site web est un projet personnel visant à présenter mes compétences et projets. Il est conçu et développé entièrement par moi.",
+      "technologies": ["HTML5", "CSS3", "JavaScript"],
+      "image": "assets/images/portfolio.png",
+      "alt": "mon Portfolio",
+      "lien": "https://leadertgn.github.io/mon-portfolio/",
+      "categorie": "web"
+    },
+{
+  "id": 6,
+  "titre": "Agrisense - Système d'Irrigation Intelligent",
+  "description": "Projet IoT avec dashboard Firebase pour l'irrigation à distance. Contrôle d'électrovanne et monitoring en temps réel. 🔐 Accès sur demande - contactez-moi pour une démonstration.",
+  "technologies": ["HTML5", "CSS3", "JavaScript", "Firebase", "Firebase Auth", "Firebase Realtime Database", "Firebase Hosting", "IoT", "Arduino/ESP"],
+  "image": "assets/images/agrisense_connexion.png",
+  "alt": "Dashboard Agrisense - Système d'irrigation intelligent",
+  "lien": "mailto:tognonemeric@gmail.com?subject=Demande d'accès Agrisense&body=Bonjour Eméric,%0D%0A%0D%0AJe souhaiterais avoir accès à la démonstration d'Agrisense.%0D%0A%0D%0ACordialement,",
+  "categorie": "iot"
+}
+  ]
+}

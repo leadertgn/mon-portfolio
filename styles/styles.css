@@ -778,3 +778,86 @@ footer ul li a svg {
     padding: 0;
     box-sizing: border-box; /* Inclut padding et border dans la largeur/hauteur totale */
 }
+/* Styles pour les filtres */
+.filtres-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.filtres-projets {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filtre-btn {
+    padding: 0.6rem 1.2rem;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.filtre-btn:hover {
+    background: var(--primary-color);
+    color: var(--text-header-footer);
+    transform: translateY(-2px);
+}
+
+.filtre-btn.active {
+    background: var(--primary-color);
+    color: var(--text-header-footer);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.compteur-projets {
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Animation pour le changement de projets */
+.projets {
+    transition: opacity 0.3s ease;
+}
+
+/* Message quand aucun projet */
+.aucun-projet {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    grid-column: 1 / -1;
+}
+
+.error-message {
+    text-align: center;
+    color: #e74c3c;
+    padding: 2rem;
+    background: #fee;
+    border-radius: 8px;
+    border: 1px solid #fcc;
+    grid-column: 1 / -1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .filtres-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .compteur-projets {
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+}
