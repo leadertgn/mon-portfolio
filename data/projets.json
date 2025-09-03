@@ -53,11 +53,11 @@
 {
   "id": 6,
   "titre": "Agrisense - Système d'Irrigation Intelligent",
-  "description": "Projet IoT avec dashboard Firebase pour l'irrigation à distance. Contrôle d'électrovanne et monitoring en temps réel. 🔐 Accès sur demande - contactez-moi pour une démonstration.",
+  "description": "Projet IoT avec dashboard Firebase pour l'irrigation à distance. Contrôle d'électrovanne et monitoring en temps réel. Connectez-vous pour explorer l'interface, ou contactez-moi pour obtenir des identifiants de démonstration.",
   "technologies": ["HTML5", "CSS3", "JavaScript", "Firebase", "Firebase Auth", "Firebase Realtime Database", "Firebase Hosting", "IoT", "Arduino/ESP"],
-  "image": "assets/images/agrisense_connexion.png",
+  "image": "assets/images/agrisense.webp",
   "alt": "Dashboard Agrisense - Système d'irrigation intelligent",
-  "lien": "mailto:tognonemeric@gmail.com?subject=Demande d'accès Agrisense&body=Bonjour Eméric,%0D%0A%0D%0AJe souhaiterais avoir accès à la démonstration d'Agrisense.%0D%0A%0D%0ACordialement,",
+  "lien": "https://essai-iot-52c18.web.app/",
   "categorie": "iot"
 }
   ]
