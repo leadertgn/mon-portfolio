@@ -50,15 +50,25 @@
       "lien": "https://leadertgn.github.io/mon-portfolio/",
       "categorie": "web"
     },
-{
-  "id": 6,
-  "titre": "Agrisense - Système d'Irrigation Intelligent",
-  "description": "Projet IoT avec dashboard Firebase pour l'irrigation à distance. Contrôle d'électrovanne et monitoring en temps réel. Connectez-vous pour explorer l'interface, ou contactez-moi pour obtenir des identifiants de démonstration.",
-  "technologies": ["HTML5", "CSS3", "JavaScript", "Firebase", "Firebase Auth", "Firebase Realtime Database", "Firebase Hosting", "IoT", "Arduino/ESP"],
-  "image": "assets/images/agrisense_connexion.webp",
-  "alt": "Dashboard Agrisense - Système d'irrigation intelligent",
-  "lien": "https://essai-iot-52c18.web.app/",
-  "categorie": "iot"
-}
+    {
+      "id": 6,
+      "titre": "Agrisense - Système d'Irrigation Intelligent",
+      "description": "Projet IoT avec dashboard Firebase pour l'irrigation à distance. Contrôle d'électrovanne et monitoring en temps réel. Connectez-vous pour explorer l'interface, ou contactez-moi pour obtenir des identifiants de démonstration.",
+      "technologies": ["HTML5", "CSS3", "JavaScript", "Firebase", "Firebase Auth", "Firebase Realtime Database", "Firebase Hosting", "IoT", "Arduino/ESP"],
+      "image": "assets/images/agrisense_connexion.webp",
+      "alt": "Dashboard Agrisense - Système d'irrigation intelligent",
+      "lien": "https://essai-iot-52c18.web.app/",
+      "categorie": "iot"
+    },
+    {
+      "id": 7,
+      "titre": "Application Météo",
+      "description": "Application web météo interactive qui affiche les conditions en temps réel (température, humidité, vent, pression…) via l’API OpenWeatherMap.",
+      "technologies": ["HTML5", "CSS3", "JavaScript", "API", "Fetch"],
+      "image": "assets/images/application_meteo.webp",
+      "alt": "Capture de l'application météo",
+      "lien": "https://leadertgn.github.io/application-meteo/",
+      "categorie": "web"
+    }
   ]
 }
