@@ -1,5 +1,8 @@
 .qodo
 .dist
-brouillon.js
 .vscode
-scripts_1.js
+PLAN_ACTION_FORMATAGE.md
+.prettierrc.json
+.editorconfig
+
+
